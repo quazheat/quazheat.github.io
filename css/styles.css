@@ -1,112 +1,94 @@
-/* Base Styles  */
-body {
+body,
+h1 {
   margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+body {
   font-family: "Helvetica Neue", sans-serif;
   background: #fdfdfd;
   color: #1c1c1c;
 }
-
 .container {
   display: flex;
-  flex-direction: column; /* stack sidebar + main */
+  flex-direction: column;
   max-width: 100%;
   margin: 0 auto;
 }
-
-.sidebar,
-.main {
+.main,
+.sidebar {
   width: 100%;
   padding: 20px;
 }
-
 .sidebar {
   background-color: #e9d7f1;
 }
-
 .main {
   padding-top: 10px;
 }
-
-/* Typography */
 h1 {
   font-size: 2em;
-  margin: 0;
-  font-weight: 700;
   line-height: 1.2;
 }
-
+.highlight-bg,
+h2 {
+  margin-bottom: 10px;
+}
 h1 .highlight {
   display: block;
   font-weight: 500;
   font-size: 1.2em;
 }
-
 h2 {
   font-size: 1.1em;
-  margin-bottom: 10px;
   text-transform: uppercase;
-  font-weight: 700;
 }
-
 h3 {
   margin-top: 20px;
   font-size: 1em;
-  font-weight: 700;
 }
-
-p,
-li {
+li,
+p {
   font-size: 0.9em;
   line-height: 1.4;
-  margin: 0 0 0.5em 0;
+  margin: 0 0 0.5em;
 }
-
 ul {
   padding-left: 20px;
-  margin: 0 0 1em 0;
+  margin: 0 0 1em;
 }
-
 .small {
   font-size: 0.85em;
   color: #333;
 }
-
 .blue {
   color: #6495ed;
   font-style: italic;
 }
-
 .highlight-bg {
   background-color: #d1a1e3;
   padding: 5px 10px;
   display: inline-block;
-  margin-bottom: 10px;
 }
-
 .section {
   margin-bottom: 30px;
 }
-
-/* ================================
-   Tablet & Up (≥768px)
-   ================================ */
 @media (min-width: 768px) {
   .container {
-    flex-direction: row; /* sidebar + main side by side */
+    flex-direction: row;
     max-width: 1000px;
   }
-
   .sidebar {
     width: 35%;
     padding: 20px;
   }
-
   .main {
     width: 65%;
     padding: 40px;
   }
-
-  /* Restore desktop typography */
   h1 {
     font-size: 2.5em;
   }
@@ -116,21 +98,16 @@ ul {
   h2 {
     font-size: 1.2em;
   }
-  p,
-  li {
+  li,
+  p {
     font-size: 0.95em;
     line-height: 1.6;
   }
 }
-
-/* ================================
-   Desktop Wide (≥1200px)
-   ================================ */
 @media (min-width: 1200px) {
   .container {
     padding: 0 20px;
   }
-
   .main {
     padding: 60px;
   }
