@@ -88,42 +88,6 @@ ul {
 }
 
 /* ================================
-   Tablet & Up (≥768px)
-   ================================ */
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row; /* sidebar + main side by side */
-    max-width: 1000px;
-  }
-
-  .sidebar {
-    width: 35%;
-    padding: 20px;
-  }
-
-  .main {
-    width: 65%;
-    padding: 40px;
-  }
-
-  /* Restore desktop typography */
-  h1 {
-    font-size: 2.5em;
-  }
-  h1 .highlight {
-    font-size: 1.5em;
-  }
-  h2 {
-    font-size: 1.2em;
-  }
-  p,
-  li {
-    font-size: 0.95em;
-    line-height: 1.6;
-  }
-}
-
-/* ================================
    Desktop Wide (≥1200px)
    ================================ */
 @media (min-width: 1200px) {
