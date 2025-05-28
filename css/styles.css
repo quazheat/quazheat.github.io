@@ -1,79 +1,107 @@
-body,
-h1 {
-  margin: 0;
+h1, h2, h3 {
+    font-weight: 700
 }
-h2 {
-  text-transform: uppercase;
+
+body, h1, h2, h3, li, p, ul {
+    margin: 0;
+    padding: 0
 }
-h1,
-h2,
-h3 {
-  font-weight: 700;
+
+h3, ul {
+    margin: 10px 0
 }
+
 body {
-  font-family: "Helvetica Neue", sans-serif;
-  background: #fdfdfd;
-  color: #1c1c1c;
+    font-family: "Helvetica Neue",sans-serif;
+    background: #fdfdfd;
+    color: #1c1c1c;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px
 }
-li,
-p {
-  font-size: 0.95em;
-  line-height: 1.6;
-}
-ul {
-  padding-left: 20px;
-}
+
 h1 {
-  font-size: 2.5em;
+    font-size: 2em
 }
-h1 .highlight {
-  display: block;
-  font-weight: 500;
-  font-size: 1.5em;
-}
+
+    h1 .highlight {
+        display: block;
+        font-weight: 500;
+        font-size: 1.2em
+    }
+
 h2 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    margin: 15px 0 10px
 }
+
 h3 {
-  margin-top: 20px;
-  font-size: 1em;
+    font-size: .9em
 }
-.container {
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+li, p {
+    font-size: .95em
 }
-.sidebar {
-  background-color: #e9d7f1;
-  color: #000;
-  padding: 20px;
-  width: 35%;
+
+ul {
+    list-style: disc inside;
+    padding-left: 0
 }
-.main {
-  padding: 40px;
-  width: 65%;
-}
+
 .highlight-bg {
-  background-color: #d1a1e3;
-  padding: 5px 10px;
-  display: inline-block;
-  margin-bottom: 10px;
+    background-color: #d1a1e3;
+    padding: 4px 8px;
+    display: inline-block;
+    margin-bottom: 10px
 }
-.intro,
-.section {
-  margin-bottom: 30px;
-}
+
 .small {
-  font-size: 0.9em;
-  color: #333;
+    font-size: .85em;
+    color: #333
 }
+
 .blue {
-  color: #1f53b4;
-  font-style: italic;
+    color: #1f53b4;
+    font-style: italic
 }
-.expirience,
-.interesets {
-  margin-left: 5px;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+    background: #fff;
+    overflow: hidden
+}
+
+.main, .sidebar {
+    width: 100%;
+    padding: 20px
+}
+
+.sidebar {
+    background-color: #e9d7f1
+}
+
+.section {
+    margin-bottom: 25px
+}
+
+@media (min-width:768px) {
+    .container {
+        flex-direction: row;
+        max-width: 1000px
+    }
+
+    .sidebar {
+        width: 35%;
+        padding: 30px
+    }
+
+    .main {
+        width: 65%;
+        padding: 40px
+    }
 }
