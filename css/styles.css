@@ -44,6 +44,7 @@ h3 {
 li,
 p {
   font-size: 0.95em;
+  text-align: justify;
 }
 ul {
   list-style: disc inside;
