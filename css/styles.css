@@ -78,9 +78,11 @@ ul {
 }
 .main {
   background-color: #f3e8ff;
+  order: 1;
 }
 .sidebar {
   background-color: #e9d7f1;
+  order: 2;
 }
 .section {
   margin-bottom: 25px;
