@@ -90,13 +90,13 @@ ul {
   margin-bottom: 25px;
 }
 .section-competences {
-  order: 2;
+  order: 3;
 }
 .section-formation {
-  order: 1;
+  order: 2;
 }
 .section-contact {
-  order: 3;
+  order: 1;
 }
 .intro {
   order: 1;
