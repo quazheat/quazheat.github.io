@@ -87,6 +87,24 @@ ul {
 .section {
   margin-bottom: 25px;
 }
+.section-competences {
+  order: 1;
+}
+.section-formation {
+  order: 2;
+}
+.section-contact {
+  order: 3;
+}
+.intro {
+  order: 1;
+}
+.experience {
+  order: 2;
+}
+.interests {
+  order: 3;
+}
 @media (min-width: 768px) {
   .container {
     flex-direction: row;
