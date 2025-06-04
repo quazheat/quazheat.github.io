@@ -81,6 +81,8 @@ ul {
   order: 1;
 }
 .sidebar {
+  display: flex;
+  flex-direction: column;
   background-color: #e9d7f1;
   order: 2;
 }
