@@ -73,6 +73,8 @@ ul {
 }
 .main,
 .sidebar {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 20px;
 }
@@ -80,23 +82,31 @@ ul {
   background-color: #f3e8ff;
   order: 1;
 }
-.sidebar {
+.main header {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.main header h1,
+.main header h2 {
+  width: 100%;
+  text-align: center;
+}
+.sidebar {
   background-color: #e9d7f1;
   order: 2;
 }
 .section {
   margin-bottom: 25px;
 }
-.section-competences {
-  order: 3;
+.section.competences {
+  order: 1;
 }
-.section-formation {
+.section.formation {
   order: 2;
 }
-.section-contact {
-  order: 1;
+.section.contact {
+  order: 3;
 }
 .intro {
   order: 1;
