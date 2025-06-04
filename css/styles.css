@@ -88,10 +88,10 @@ ul {
   margin-bottom: 25px;
 }
 .section-competences {
-  order: 1;
+  order: 2;
 }
 .section-formation {
-  order: 2;
+  order: 1;
 }
 .section-contact {
   order: 3;
