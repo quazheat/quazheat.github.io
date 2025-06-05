@@ -153,9 +153,6 @@ header h2 {
   margin-bottom: 5px;
   transition: transform 0.3s;
 }
-.navbar li a[href="#interests"] img {
-  margin-left: -18px;
-}
 .navbar li a:hover {
   color: #007acc;
 }
@@ -298,7 +295,6 @@ footer {
   }
   .navbar ul {
     display: flex;
-    flex-wrap: nowrap;
     justify-content: flex-end;
     gap: 30px;
   }
