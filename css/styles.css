@@ -146,9 +146,6 @@ header h2 {
   color: #333;
   transition: color 0.3s;
 }
-.navbar li a[href="#interests"] img {
-  margin-left: -8px;
-}
 
 .navbar li a img {
   width: 40px;
