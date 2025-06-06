@@ -237,8 +237,8 @@ footer {
   transition: opacity 0.3s;
   z-index: 999;
   cursor: pointer;
-  background-color: #333;
   color: #fff;
+  background-color: #333;
 }
 #toTopBtn:hover {
   opacity: 1;
