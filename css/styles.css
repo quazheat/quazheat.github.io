@@ -134,9 +134,6 @@ header h2 {
   margin-bottom: 5px;
   transition: transform 0.3s;
 }
-.navbar li a[href="#interests"] img {
-  margin-left: -68px;
-}
 .navbar li a:hover {
   color: #007acc;
 }
@@ -212,7 +209,6 @@ header h2 {
 }
 .highlight-bg {
   background: linear-gradient(90deg, #007acc 0, #00bfff 100%);
-  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
