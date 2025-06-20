@@ -1,5 +1,4 @@
 :root {
-  /* Цветовая палитра */
   --pink-1: #ffc9f7;
   --pink-2: #fba0ed;
   --pink-3: #ff79c5;
@@ -7,7 +6,6 @@
   --pink-5: #e32bd7;
   --pink-6: #ae19ab;
 
-  /* Связанные переменные */
   --bg-light: var(--pink-1);
   --bg-mid: var(--pink-2);
   --accent: var(--pink-6);
