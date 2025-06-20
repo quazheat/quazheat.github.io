@@ -180,6 +180,11 @@ header h2 {
   font-size: 0.95rem;
   text-align: center;
 }
+.skills-list {
+  list-style: none;
+  margin-top: 10px;
+  gap: 10px;
+}
 footer {
   font-size: 0.85rem;
 }
@@ -212,6 +217,24 @@ footer {
   display: block;
   margin-bottom: 0.3rem;
   color: var(--mood-2);
+}
+
+#toTopBtn {
+  display: none;
+  position: fixed;
+  border: none;
+  border-radius: 50%;
+  bottom: 20px;
+  right: 20px;
+  font-size: 18px;
+  padding: 10px 14px;
+  opacity: 0.8;
+  outline: 0;
+  transition: opacity 0.3s;
+  z-index: 999;
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--accent);
 }
 @media (min-width: 768px) {
   .section-wrapper {
