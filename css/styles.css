@@ -1,17 +1,17 @@
 :root {
   --pink-1: #f4f4f4ff;
-  --pink-2: #fba0ed;
+  --pink-2: #ae19ab;
   --pink-3: #ff79c5;
   --pink-4: #f52dfb;
   --pink-5: #e32bd7;
-  --pink-6: #ae19ab;
+  --pink-6: #0a010a;
 
   --bg-light: var(--pink-1);
   --bg-mid: var(--pink-2);
   --accent: var(--pink-6);
   --border-light: var(--pink-3);
 
-  --text-default: #333;
+  --text-default: #1b1b1b;
 }
 
 #bg-canvas {
@@ -34,12 +34,13 @@ header {
   border-bottom: 1px solid var(--border-light);
 }
 
-.section-wrapper,
-footer,
-header {
+.section-wrapper {
   background-color: var(--bg-mid);
 }
-
+footer,
+header {
+  background-color: var(--pink-5);
+}
 .navbar,
 footer {
   border-top: 1px solid var(--border-light);
@@ -136,12 +137,12 @@ header h1 {
 
 header h2 {
   font-size: 1.2rem;
-  color: #555;
+  color: #2b2a2a;
 }
 
 .navbar {
   padding: 10px 0;
-  background-color: var(--bg-mid);
+  background-color: var(--pink-5);
 }
 
 .edu-item,
@@ -224,7 +225,7 @@ header h2 {
 
 .edu-subtitle {
   font-size: 0.95rem;
-  color: #555;
+  color: #1c1b1b;
 }
 
 .exp-item {
@@ -241,7 +242,7 @@ header h2 {
 .exp-company {
   font-size: 0.95rem;
   margin-bottom: 8px;
-  color: #555;
+  color: #480547;
 }
 
 .exp-item ul {
@@ -263,7 +264,7 @@ header h2 {
 }
 
 .highlight-bg {
-  background: linear-gradient(90deg, var(--pink-3) 0%, var(--pink-6) 100%);
+  background: linear-gradient(90deg, #4b0082 0%, #2a003f 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
