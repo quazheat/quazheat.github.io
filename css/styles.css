@@ -168,6 +168,7 @@ header h2 {
 .interests-list li {
   background-color: var(--mood-5);
   border-radius: 6px;
+  list-style: none;
 }
 .skills-list li:hover {
   background-color: var(--accent);
