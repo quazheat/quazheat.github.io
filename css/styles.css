@@ -1,5 +1,5 @@
 :root {
-  --pink-1: #ffc9f7;
+  --pink-1: #ae19ab;
   --pink-2: #fba0ed;
   --pink-3: #ff79c5;
   --pink-4: #f52dfb;
@@ -141,7 +141,7 @@ header h2 {
 
 .navbar {
   padding: 10px 0;
-  background-color: #f7f7f7;
+  background-color: var(--pink-4);
 }
 
 .edu-item,
