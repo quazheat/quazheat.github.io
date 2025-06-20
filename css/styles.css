@@ -92,6 +92,9 @@ main {
 footer {
   padding: 1rem 0;
 }
+.nav-no-wrap {
+  white-space: nowrap;
+}
 #formation .edu-title,
 .navbar li a:hover {
   color: var(--accent);
