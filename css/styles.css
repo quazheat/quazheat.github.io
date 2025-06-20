@@ -141,7 +141,7 @@ header h2 {
 
 .navbar {
   padding: 10px 0;
-  background-color: var(--pink-2);
+  background-color: var(--bg-mid);
 }
 
 .edu-item,
