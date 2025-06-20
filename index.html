@@ -254,18 +254,27 @@
     </script>
 
     <script>
-      const NODE_COUNT = 60; // number of nodes (points)
-      const MAX_DISTANCE = 120; // maximum distance at which a line is drawn between nodes
-      const NODE_RADIUS = 2; // radius of each node
-      const SPEED = 0.4; // base speed for node movement
+      const rootStyles = getComputedStyle(document.documentElement);
+      // --pink-5 (#E32BD7)
+      const accentHex = rootStyles.getPropertyValue("--pink-5").trim();
+      function hexToRgba(hex, alpha = 1) {
+        const bigint = parseInt(hex.slice(1), 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      }
 
-      // === Canvas Setup ===
+      // Canvas setup
       const canvas = document.getElementById("bg-canvas");
       const ctx = canvas.getContext("2d");
       let width, height;
+      const NODE_COUNT = 60,
+        MAX_DISTANCE = 120,
+        NODE_RADIUS = 2,
+        SPEED = 0.4;
       let nodes = [];
 
-      // Resize the canvas to match its parent element when the window is loaded or resized
       function resizeCanvas() {
         width = canvas.clientWidth;
         height = canvas.clientHeight;
@@ -275,28 +284,21 @@
       window.addEventListener("resize", resizeCanvas);
       resizeCanvas();
 
-      // === Node Constructor ===
       class Node {
         constructor() {
-          // Initialize node at a random position within the canvas
           this.x = Math.random() * width;
           this.y = Math.random() * height;
-          // Random velocity components between -SPEED and +SPEED
           this.vx = (Math.random() * 2 - 1) * SPEED;
           this.vy = (Math.random() * 2 - 1) * SPEED;
         }
         move() {
-          // Update position based on velocity
           this.x += this.vx;
           this.y += this.vy;
-          // Bounce off left/right boundaries
           if (this.x <= 0 || this.x >= width) this.vx *= -1;
-          // Bounce off top/bottom boundaries
           if (this.y <= 0 || this.y >= height) this.vy *= -1;
         }
       }
 
-      // === Initialize Nodes Array ===
       function initNodes() {
         nodes = [];
         for (let i = 0; i < NODE_COUNT; i++) {
@@ -305,21 +307,19 @@
       }
       initNodes();
 
-      // === Animation Loop Function ===
       function animate() {
-        // Clear the entire canvas before drawing the next frame
         ctx.clearRect(0, 0, width, height);
 
-        // Step 1: Draw lines between nodes if they are within MAX_DISTANCE
+        // Рисуем линии между узлами
         for (let i = 0; i < nodes.length; i++) {
           for (let j = i + 1; j < nodes.length; j++) {
             const dx = nodes[i].x - nodes[j].x;
             const dy = nodes[i].y - nodes[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+            const dist = Math.hypot(dx, dy);
             if (dist < MAX_DISTANCE) {
-              // Compute opacity based on proximity: closer nodes yield more opaque lines
-              const opacity = 1 - dist / MAX_DISTANCE;
-              ctx.strokeStyle = `rgba(0, 122, 204, ${opacity * 0.6})`;
+              // Чем ближе – тем сильнее альфа
+              const opacity = (1 - dist / MAX_DISTANCE) * 0.6;
+              ctx.strokeStyle = hexToRgba(accentHex, opacity);
               ctx.lineWidth = 1;
               ctx.beginPath();
               ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -329,8 +329,7 @@
           }
         }
 
-        // Step 2: Draw each node as a filled circle and update its position
-        ctx.fillStyle = "rgba(0, 122, 204, 0.8)";
+        ctx.fillStyle = hexToRgba(accentHex, 0.8);
         for (let node of nodes) {
           ctx.beginPath();
           ctx.arc(node.x, node.y, NODE_RADIUS, 0, Math.PI * 2);
@@ -338,11 +337,9 @@
           node.move();
         }
 
-        // Loop the animation by requesting the next frame
         requestAnimationFrame(animate);
       }
 
-      // Start the animation loop
       animate();
     </script>
   </body>
