@@ -90,7 +90,9 @@ main {
 }
 .navbar,
 footer {
-  padding: 1rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
 }
 .nav-no-wrap {
   white-space: nowrap;
