@@ -29,6 +29,7 @@
 
       <!-- ============================= -->
       <nav class="navbar">
+        <button class="nav-toggle" aria-label="open menu">☰</button>
         <ul>
           <li>
             <a href="#about">
@@ -258,7 +259,13 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       };
     </script>
-
+    <script>
+      const navbar = document.querySelector(".navbar");
+      const toggle = document.querySelector(".nav-toggle");
+      toggle.addEventListener("click", () => {
+        navbar.classList.toggle("open");
+      });
+    </script>
     <script>
       const rootStyles = getComputedStyle(document.documentElement);
       // --pink-5 (#E32BD7)
