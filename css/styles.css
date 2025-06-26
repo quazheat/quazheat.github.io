@@ -301,3 +301,63 @@ footer {
     height: 20px;
   }
 }
+/* Только для экранов от 769px до 960px */
+@media (min-width: 769px) and (max-width: 960px) {
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media print {
+  .navbar,
+  .nav-toggle,
+  .button-get-in-touch,
+  #toTopBtn {
+    display: none !important;
+  }
+
+  body,
+  .section-wrapper,
+  header,
+  footer {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  html {
+    font-size: 12pt;
+  }
+  body {
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 18pt;
+  }
+  h2 {
+    font-size: 14pt;
+  }
+  p,
+  li,
+  a {
+    font-size: 10pt;
+  }
+
+  header,
+  main,
+  footer,
+  .section-wrapper {
+    margin: 0;
+    padding: 0;
+  }
+  #bg-canvas {
+    display: none !important;
+  }
+  @page {
+    margin: 1.5cm;
+  }
+}
