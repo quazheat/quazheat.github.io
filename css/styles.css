@@ -17,17 +17,38 @@ footer {
 }
 :root {
   --mood-1: #c494b3;
-  --mood-2: #ecbdbd;
-  --mood-3: #ffeef4;
-  --mood-4: #e7b0d8;
+  --mood-2: #b07bb3;
+  --mood-3: #fff6fa;
+  --mood-4: #a05a8c;
   --mood-5: #fff5ff;
-  --mood-6: #c597b3;
+  --mood-6: #7c3a6e;
   --bg-page: #fff3fb;
   --bg-section: var(--mood-3);
-  --accent: #c99dbe;
-  --accent-pressed: #faddf0;
-  --text-main: #333;
+  --accent: #a05a8c;
+  --accent-pressed: #e0b3d6;
+  --text-main: #222;
   --border-light: var(--mood-6);
+}
+
+.section-title,
+.section-title.highlight-bg {
+  color: #222 !important;
+}
+
+.btn-download-cv {
+  color: #fff;
+  background-color: #a05a8c;
+}
+
+.exp-role,
+.exp-company,
+.edu-title {
+  color: #222 !important;
+}
+
+.section-wrapper {
+  color: #222;
+  background-color: #fff;
 }
 #bg-canvas {
   position: fixed;
@@ -226,6 +247,10 @@ header h2 {
 }
 footer {
   font-size: 0.85rem;
+}
+.exp-item strong {
+  color: #222;
+  font-weight: bold;
 }
 #experience .exp-item {
   margin-bottom: 2rem;
