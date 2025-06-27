@@ -65,16 +65,30 @@ main {
   max-width: 1000px;
   margin: 0 auto;
 }
-.button-get-in-touch {
+.btn-download-cv {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-block;
+  font-family: Poppins, sans-serif;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #fff;
   background-color: var(--accent);
-  padding: 14px 28px;
-  border: none;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.2s, transform 0.2s;
+  z-index: 20;
+}
+
+.btn-download-cv:hover {
+  background-color: var(--accent-pressed);
+  transform: translateY(-1px);
+}
+
+.btn-download-cv:active {
+  transform: translateY(1px);
 }
 .button-get-in-touch:active {
   background-color: var(--accent-pressed);
@@ -300,8 +314,18 @@ footer {
     width: 20px;
     height: 20px;
   }
+  .btn-download-cv {
+    position: static !important;
+    display: block;
+    margin: 0.5rem auto 1.5rem;
+    right: auto;
+    top: auto;
+  }
+
+  .header-titles {
+    margin: 1.5rem 0 1rem;
+  }
 }
-/* Только для экранов от 769px до 960px */
 @media (min-width: 769px) and (max-width: 960px) {
   .navbar ul {
     display: flex;
@@ -312,6 +336,9 @@ footer {
 }
 
 @media print {
+  .btn-download-cv {
+    display: none;
+  }
   .navbar,
   .nav-toggle,
   .button-get-in-touch,
