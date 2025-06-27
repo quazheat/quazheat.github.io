@@ -40,6 +40,10 @@ footer {
   background-color: #a05a8c;
 }
 
+.exp-item strong {
+  color: #222;
+  font-weight: bold;
+}
 .exp-role,
 .exp-company,
 .edu-title {
@@ -247,10 +251,6 @@ header h2 {
 }
 footer {
   font-size: 0.85rem;
-}
-.exp-item strong {
-  color: #222;
-  font-weight: bold;
 }
 #experience .exp-item {
   margin-bottom: 2rem;
