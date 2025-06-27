@@ -1,7 +1,17 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap);
+.btn-download-cv,
 .button-get-in-touch,
 body {
   font-family: Poppins, sans-serif;
+}
+.btn-download-cv,
+a {
+  text-decoration: none;
+}
+*,
+.navbar ul {
+  margin: 0;
+  padding: 0;
 }
 .navbar li a,
 .skills-list li,
@@ -29,27 +39,20 @@ footer {
   --text-main: #222;
   --border-light: var(--mood-6);
 }
-
+.edu-title,
+.exp-company,
+.exp-role,
 .section-title,
 .section-title.highlight-bg {
   color: #222 !important;
 }
-
 .btn-download-cv {
-  color: #fff;
   background-color: #a05a8c;
 }
-
 .exp-item strong {
   color: #222;
-  font-weight: bold;
+  font-weight: 700;
 }
-.exp-role,
-.exp-company,
-.edu-title {
-  color: #222 !important;
-}
-
 .section-wrapper {
   color: #222;
   background-color: #fff;
@@ -65,8 +68,6 @@ footer {
 }
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 html {
   font-size: 100%;
@@ -78,7 +79,6 @@ body {
 }
 a {
   color: inherit;
-  text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
@@ -95,29 +95,36 @@ main {
   top: 1rem;
   right: 1rem;
   display: inline-block;
-  font-family: Poppins, sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   color: #fff;
   background-color: var(--accent);
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  text-decoration: none;
   transition: background-color 0.2s, transform 0.2s;
   z-index: 20;
 }
-
+#toTopBtn,
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+  color: #fff;
+}
 .btn-download-cv:hover {
   background-color: var(--accent-pressed);
   transform: translateY(-1px);
 }
-
 .btn-download-cv:active {
   transform: translateY(1px);
 }
 .button-get-in-touch:active {
   background-color: var(--accent-pressed);
   transform: translateY(1px);
+}
+#toTopBtn,
+.section-title::after,
+.skills-list li:hover {
+  background-color: var(--accent);
 }
 .section-wrapper {
   background-color: var(--bg-section);
@@ -168,15 +175,12 @@ header h2 {
   list-style: none;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
 }
 .navbar li a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.95rem;
-  color: var(--text-main);
   transition: color 0.3s;
 }
 .navbar li a img {
@@ -184,16 +188,13 @@ header h2 {
   height: 24px;
 }
 .nav-toggle {
-  display: none;
   position: absolute;
   top: 50%;
   right: 1rem;
   transform: translateY(-50%);
-  background: none;
+  background: 0 0;
   border: none;
   font-size: 1.5rem;
-  cursor: pointer;
-  color: #fff;
   z-index: 10;
 }
 .section-title {
@@ -207,14 +208,15 @@ header h2 {
   display: block;
   width: 60px;
   height: 3px;
-  background-color: var(--accent);
   margin: 0.5rem auto 0;
 }
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
+  list-style: none;
+  margin-top: 10px;
+  gap: 10px;
 }
 .skills-list li {
   list-style: none;
@@ -231,7 +233,6 @@ header h2 {
   list-style: none;
 }
 .skills-list li:hover {
-  background-color: var(--accent);
   color: #fff;
 }
 .interests-list {
@@ -243,11 +244,6 @@ header h2 {
   padding: 10px;
   font-size: 0.95rem;
   text-align: center;
-}
-.skills-list {
-  list-style: none;
-  margin-top: 10px;
-  gap: 10px;
 }
 footer {
   font-size: 0.85rem;
@@ -282,9 +278,7 @@ footer {
   margin-bottom: 0.3rem;
   color: var(--mood-2);
 }
-
 #toTopBtn {
-  display: none;
   position: fixed;
   border: none;
   border-radius: 50%;
@@ -296,9 +290,6 @@ footer {
   outline: 0;
   transition: opacity 0.3s;
   z-index: 999;
-  cursor: pointer;
-  color: #fff;
-  background-color: var(--accent);
 }
 @media (max-width: 768px) {
   .section-wrapper {
@@ -314,12 +305,6 @@ footer {
   }
   .navbar ul {
     gap: 3rem;
-  }
-  .nav-toggle {
-    display: block;
-  }
-
-  .navbar ul {
     display: none;
     flex-direction: column;
     gap: 1rem;
@@ -330,15 +315,15 @@ footer {
     width: 100%;
     padding: 1rem 0;
   }
-
+  .nav-toggle {
+    display: block;
+  }
   .navbar.open ul {
     display: flex;
   }
-
   .navbar ul li {
     padding: 0.5rem 1.5rem;
   }
-
   .navbar li a img {
     width: 20px;
     height: 20px;
@@ -353,7 +338,6 @@ footer {
     padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
   }
-
   .header-titles {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -367,55 +351,48 @@ footer {
     gap: 1rem;
   }
 }
-
 @media print {
   .btn-download-cv {
     display: none;
   }
-  .navbar,
-  .nav-toggle,
+  #bg-canvas,
+  #toTopBtn,
   .button-get-in-touch,
-  #toTopBtn {
+  .nav-toggle,
+  .navbar {
     display: none !important;
   }
-
-  body,
   .section-wrapper,
-  header,
-  footer {
-    background: none !important;
+  body,
+  footer,
+  header {
+    background: 0 0 !important;
     box-shadow: none !important;
     border: none !important;
   }
-
   html {
     font-size: 12pt;
   }
   body {
     line-height: 1.4;
   }
-
   h1 {
     font-size: 18pt;
   }
   h2 {
     font-size: 14pt;
   }
-  p,
+  a,
   li,
-  a {
+  p {
     font-size: 10pt;
   }
-
-  header,
-  main,
+  .section-wrapper,
   footer,
-  .section-wrapper {
+  header,
+  main {
     margin: 0;
     padding: 0;
-  }
-  #bg-canvas {
-    display: none !important;
   }
   @page {
     margin: 1.5cm;
