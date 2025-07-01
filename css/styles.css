@@ -364,6 +364,20 @@ footer {
   border-radius: 5px;
   text-align: center;
 }
+.project-card .btn-link:disabled,
+.project-card .btn-link[disabled] {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.project-card .btn-link:disabled:hover,
+.project-card .btn-link:disabled:active {
+  background-color: #ccc;
+  transform: none;
+}
 #experience .exp-item {
   margin-bottom: 2rem;
   padding: 1rem 1.5rem;
