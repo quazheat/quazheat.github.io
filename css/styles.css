@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap);
+body,
+main {
+  display: flex;
+}
 .btn-download-cv,
 .button-get-in-touch,
 body {
@@ -17,6 +21,21 @@ a {
 .skills-list li,
 body {
   color: var(--text-main);
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+body {
+  flex-direction: column;
+  line-height: 1.6;
+  background-color: var(--bg-page);
+  overflow-x: hidden;
+}
+main {
+  flex: 1;
+  flex-direction: column;
 }
 #contact .section-text,
 .header-titles,
@@ -72,13 +91,13 @@ footer {
 html {
   font-size: 100%;
 }
-body {
-  line-height: 1.6;
-  background-color: var(--bg-page);
-  overflow-x: hidden;
-}
 a {
   color: inherit;
+}
+.contact-form label,
+footer,
+header h1 {
+  color: var(--mood-6);
 }
 a:hover {
   text-decoration: underline;
@@ -110,11 +129,15 @@ main {
   cursor: pointer;
   color: #fff;
 }
-.btn-download-cv:hover {
+.btn-download-cv:hover,
+.contact-form .btn-submit:hover,
+.project-card .btn-link:hover {
   background-color: var(--accent-pressed);
   transform: translateY(-1px);
 }
-.btn-download-cv:active {
+.btn-download-cv:active,
+.contact-form .btn-submit:active,
+.project-card .btn-link:active {
   transform: translateY(1px);
 }
 .button-get-in-touch:active {
@@ -146,10 +169,6 @@ footer {
 #formation .edu-title,
 .navbar li a:hover {
   color: var(--accent);
-}
-footer,
-header h1 {
-  color: var(--mood-6);
 }
 .header-titles {
   margin: 2rem 0;
@@ -196,6 +215,11 @@ header h2 {
   border: none;
   font-size: 1.5rem;
   z-index: 10;
+}
+.project-card,
+.section-wrapper.contact-form {
+  background-color: var(--bg-section);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .section-title {
   font-size: 1.8rem;
@@ -247,6 +271,98 @@ header h2 {
 }
 footer {
   font-size: 0.85rem;
+}
+.section-wrapper.contact-form {
+  border-radius: 8px;
+  padding: 20px;
+  margin: 2rem auto;
+  border: 1px solid var(--border-light);
+  max-width: 600px;
+}
+.contact-form .btn-submit,
+.project-card .btn-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--accent);
+  transition: background-color 0.2s, transform 0.2s;
+  font-weight: 600;
+}
+.contact-form h2.section-title {
+  margin-bottom: 1.5rem;
+}
+.contact-form .form-group {
+  margin-bottom: 1rem;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.contact-form input[type="email"],
+.contact-form input[type="text"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background-color: var(--mood-5);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  transition: border-color 0.2s;
+}
+.contact-form input[type="email"]:focus,
+.contact-form input[type="text"]:focus,
+.contact-form textarea:focus {
+  outline: 0;
+  border-color: var(--accent);
+}
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+.contact-form .btn-submit {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.section-wrapper.projects {
+  padding: 20px;
+  margin: 2rem 0;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--mood-6);
+}
+.project-card p {
+  flex: 1;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+.project-card .btn-link {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-align: center;
 }
 #experience .exp-item {
   margin-bottom: 2rem;
