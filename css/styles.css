@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap);
-
 #bg-canvas {
   position: fixed;
   top: 0;
@@ -367,9 +366,8 @@ footer {
   opacity: 0.6;
   transform: none;
 }
-
-.project-card .btn-link:disabled:hover,
-.project-card .btn-link:disabled:active {
+.project-card .btn-link:disabled:active,
+.project-card .btn-link:disabled:hover {
   background-color: #ccc;
   transform: none;
 }
