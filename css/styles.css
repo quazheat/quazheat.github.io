@@ -272,6 +272,7 @@ footer {
   margin: 2rem auto;
   border: 1px solid var(--border-light);
   max-width: 600px;
+  width: 100%;
 }
 .contact-form .btn-submit,
 .project-card .btn-link {
