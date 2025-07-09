@@ -1,0 +1,50 @@
+name: Build and deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          npm install
+          # или: bundle install
+
+      - name: Run tests & linters
+        run: |
+          npm run lint
+          npm test
+
+      - name: Build site
+        run: |
+          npm run build
+          # или: bundle exec jekyll build --destination ./_site
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./_site
+
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v2
+
+      # —–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+      - name: Print site URL
+        run: |
+          echo "✅ Site successfully deployed!"
+          echo "🌐 URL: https://${{ github.repository_owner }}.github.io"
