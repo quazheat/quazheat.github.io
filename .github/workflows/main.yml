@@ -1,4 +1,4 @@
-name: Build and deploy GitHub Pages
+name: Build, validate, and deploy GitHub Pages
 
 on:
   push:
@@ -14,11 +14,11 @@ jobs:
       id-token: write   # allow OIDC authentication
 
     steps:
-      # 1. Clone the repository
+      # 1. Checkout your repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Set up Ruby environment
+      # 2. Set up Ruby for Jekyll
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -26,21 +26,19 @@ jobs:
 
       # 3. Install Jekyll
       - name: Install Jekyll
-        run: |
-          gem install jekyll
+        run: gem install jekyll
 
-      # 4. Run Markdown linting
+      # 4. Lint Markdown
       - name: Markdown lint
         run: |
           gem install mdl
           mdl .
 
-      # 5. Build the site with Jekyll
-      - name: Build site
-        run: |
-          jekyll build --destination ./_site
+      # 5. Build the site
+      - name: Build site with Jekyll
+        run: jekyll build --destination ./_site
 
-      # 6. Verify Bootstrap version is 5.3.7
+      # 6. Verify Bootstrap 5.3.7
       - name: Verify Bootstrap version is 5.3.7
         run: |
           if grep -R -E '/bootstrap/5\.3\.7/' ./_site \
@@ -51,38 +49,32 @@ jobs:
             exit 1
           fi
 
-      # 7. Set up Node.js for htmllint
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      # 7. Validate HTML via W3C Validator
+      - name: Validate HTML with W3C
+        uses: validator/validator-action@v1
         with:
-          node-version: '16'
+          # Glob pattern for your generated HTML files
+          files: "_site/**/*.html"
+          # Fail the workflow if any errors are found
+          fail-on-error: true
+          # You can enable `verbose` to see warnings as well
+          verbose: true
 
-            # 8. Install htmllint CLI
-      - name: Install htmllint-cli
-        run: npm install -g htmllint-cli
-
-      # 9. Run htmllint against generated HTML
-      - name: Run htmllint
-        run: |
-          # Lint all HTML files under _site directory
-          htmllint "./_site/**/*.html" --config .htmllintrc
-
-
-      # 10. Configure GitHub Pages
+      # 8. Configure GitHub Pages
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
-      # 11. Upload build artifact for Pages
+      # 9. Upload the built site
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
-      # 12. Deploy to GitHub Pages
+      # 10. Deploy to GitHub Pages
       - name: Deploy to Pages
         uses: actions/deploy-pages@v4
 
-      # 13. Print deployed site URL
+      # 11. Print deployed site URL
       - name: Print site URL
         run: |
           echo "✅ Site successfully deployed!"
