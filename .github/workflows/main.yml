@@ -9,69 +9,78 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read    # чтение кода
-      pages: write      # запись в Pages
-      id-token: write   # для authenticate via OIDC
+      contents: read    # allow reading repository contents
+      pages: write      # allow writing to GitHub Pages
+      id-token: write   # allow OIDC authentication
 
     steps:
-      # 1. Клонируем репозиторий
+      # 1. Clone the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Устанавливаем Ruby
+      # 2. Set up Ruby environment
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2.8'
 
-      # 3. Устанавливаем Jekyll & HTMLProofer
-      - name: Install Jekyll & HTMLProofer
+      # 3. Install Jekyll
+      - name: Install Jekyll
         run: |
-          gem install jekyll html-proofer
+          gem install jekyll
 
-      # 4. Линтим Markdown (опционально)
-      - name: Run Markdown lint
+      # 4. Run Markdown linting
+      - name: Markdown lint
         run: |
           gem install mdl
           mdl .
 
-      # 5. Сборка сайта
-      - name: Build site with Jekyll
+      # 5. Build the site with Jekyll
+      - name: Build site
         run: |
           jekyll build --destination ./_site
 
-      # 6. Проверка версии Bootstrap в сгенерированных HTML
+      # 6. Verify Bootstrap version is 5.3.7
       - name: Verify Bootstrap version is 5.3.7
         run: |
-          # Ищем упоминание пути с /bootstrap/5.3.7/ или ссылку на bootstrap@5.3.7
           if grep -R -E '/bootstrap/5\.3\.7/' ./_site \
              || grep -R -E 'bootstrap@5\.3\.7' ./_site; then
             echo "✅ Found Bootstrap 5.3.7"
           else
-            echo "::error::Bootstrap version is not 5.3.7 in compiled HTML"  
+            echo "::error::Bootstrap version is not 5.3.7 in compiled HTML"
             exit 1
           fi
 
-      # 7. (Опционально) Проверка ссылок и картинок
-      - name: Run HTMLProofer
-        run: |
-          htmlproofer ./_site --disable-external
+      # 7. Set up Node.js for Pa11y‑CI
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-      # 8. Настраиваем Pages
+      # 8. Install Pa11y‑CI
+      - name: Install Pa11y‑CI
+        run: npm install -g pa11y-ci
+
+      # 9. Run HTML accessibility & validity checks with Pa11y‑CI
+      - name: Run Pa11y‑CI
+        run: |
+          pa11y-ci --config .pa11yci.json --verbose
+
+      # 10. Configure GitHub Pages
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
-      # 9. Загружаем артефакты для деплоя
+      # 11. Upload build artifact for Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
-      # 10. Деплой на Pages
+      # 12. Deploy to GitHub Pages
       - name: Deploy to Pages
         uses: actions/deploy-pages@v4
 
-      # 11. Выводим URL сайта
+      # 13. Print deployed site URL
       - name: Print site URL
         run: |
           echo "✅ Site successfully deployed!"
