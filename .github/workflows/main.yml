@@ -52,11 +52,11 @@ jobs:
             exit 1
           fi
 
-      # 7. Set up Node.js for html-validate
+      # 7. Set up Node.js v18.x (LTS) for html-validate
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18.x'
 
       # 8. Install html-validate
       - name: Install html-validate
@@ -64,8 +64,6 @@ jobs:
 
       # 9. Run html-validate against generated HTML
       - name: Run html-validate
-        # Если у вас есть конфиг в .htmlvalidate.json или .htmlvalidate.yaml,
-        # он автоматически подхватится
         run: |
           html-validate "./_site/**/*.html"
 
