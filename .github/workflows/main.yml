@@ -57,14 +57,14 @@ jobs:
         with:
           node-version: '16'
 
-      # 8. Install Pa11y‑CI
+            # 8. Install Pa11y‑CI
       - name: Install Pa11y‑CI
         run: npm install -g pa11y-ci
 
       # 9. Run HTML accessibility & validity checks with Pa11y‑CI
       - name: Run Pa11y‑CI
-        run: |
-          pa11y-ci --config .pa11yci.json --verbose
+        run: pa11y-ci --config .pa11yci.json
+
 
       # 10. Configure GitHub Pages
       - name: Configure Pages
