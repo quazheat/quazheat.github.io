@@ -9,38 +9,53 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read    # для чтения кода
-      pages: write      # для записи в Pages
+      contents: read    # чтение кода
+      pages: write      # запись в Pages
       id-token: write   # для authenticate via OIDC
 
     steps:
+      # 1. Клонируем репозиторий
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          npm install
-          # или: bundle install
+      # 2. Устанавливаем Ruby и зависимости Jekyll
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.x'      # при необходимости поменяйте версию
+          bundler-cache: true      # кешируем gems
 
-      - name: Run tests & linters
+      # 3. (Опционально) Линтер для Markdown/Jekyll
+      - name: Run Markdown lint
         run: |
-          npm run lint
-          npm test
+          gem install mdl
+          mdl .
 
-      - name: Build site
+      # 4. (Опционально) Проверка ссылок в готовом сайте
+      - name: Run HTMLProofer
         run: |
-          npm run build
-          # или: bundle exec jekyll build --destination ./_site
+          bundle exec jekyll build --destination ./_site
+          bundle exec htmlproofer ./_site --disable-external
 
+      # 5. Собираем сайт
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build --destination ./_site
+
+      # 6. Настраиваем Pages
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
+      # 7. Загружаем артефакты для Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
 
+      # 8. Деплой на GitHub Pages
       - name: Deploy to Pages
         uses: actions/deploy-pages@v4
 
+      # 9. Выводим URL задеплоенного сайта
       - name: Print site URL
         run: |
           echo "✅ Site successfully deployed!"
