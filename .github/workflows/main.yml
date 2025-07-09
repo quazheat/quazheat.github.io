@@ -1,4 +1,5 @@
-name: Build, validate, and deploy GitHub Pages
+# .github/workflows/build-and-deploy.yml
+name: Build and deploy GitHub Pages
 
 on:
   push:
@@ -14,11 +15,11 @@ jobs:
       id-token: write   # allow OIDC authentication
 
     steps:
-      # 1. Checkout your repo
+      # 1. Clone the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Set up Ruby for Jekyll
+      # 2. Set up Ruby environment
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -26,19 +27,21 @@ jobs:
 
       # 3. Install Jekyll
       - name: Install Jekyll
-        run: gem install jekyll
+        run: |
+          gem install jekyll
 
-      # 4. Lint Markdown
+      # 4. Run Markdown linting
       - name: Markdown lint
         run: |
           gem install mdl
           mdl .
 
-      # 5. Build the site
-      - name: Build site with Jekyll
-        run: jekyll build --destination ./_site
+      # 5. Build the site with Jekyll
+      - name: Build site
+        run: |
+          jekyll build --destination ./_site
 
-      # 6. Verify Bootstrap 5.3.7
+      # 6. Verify Bootstrap version is 5.3.7
       - name: Verify Bootstrap version is 5.3.7
         run: |
           if grep -R -E '/bootstrap/5\.3\.7/' ./_site \
@@ -49,32 +52,38 @@ jobs:
             exit 1
           fi
 
-      # 7. Validate HTML via W3C Validator
-      - name: Validate HTML with W3C
-        uses: validator/validator-action@v1
+      # 7. Set up Node.js for html-validate
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          # Glob pattern for your generated HTML files
-          files: "_site/**/*.html"
-          # Fail the workflow if any errors are found
-          fail-on-error: true
-          # You can enable `verbose` to see warnings as well
-          verbose: true
+          node-version: '16'
 
-      # 8. Configure GitHub Pages
+      # 8. Install html-validate
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      # 9. Run html-validate against generated HTML
+      - name: Run html-validate
+        # Если у вас есть конфиг в .htmlvalidate.json или .htmlvalidate.yaml,
+        # он автоматически подхватится
+        run: |
+          html-validate "./_site/**/*.html"
+
+      # 10. Configure GitHub Pages
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
-      # 9. Upload the built site
+      # 11. Upload build artifact for Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
-      # 10. Deploy to GitHub Pages
+      # 12. Deploy to GitHub Pages
       - name: Deploy to Pages
         uses: actions/deploy-pages@v4
 
-      # 11. Print deployed site URL
+      # 13. Print deployed site URL
       - name: Print site URL
         run: |
           echo "✅ Site successfully deployed!"
