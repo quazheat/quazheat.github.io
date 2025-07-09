@@ -1,110 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Prochain projet | SEMENOV Aleksandr" />
-    <meta name="robots" content="index, follow" />
-    <title>Projets à venir | SEMENOV Aleksandr</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Prochain projet | SEMENOV Aleksandr">
+        <meta name="robots" content="index, follow">
+        <title>Projets à venir | SEMENOV Aleksandr</title>
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <canvas id="bg-canvas"></canvas>
 
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <canvas id="bg-canvas"></canvas>
-
-    <header>
-      <div class="header-titles">
-        <h1>SEMENOV Aleksandr</h1>
-        <h2>DÉVELOPPEUR WEB</h2>
-      </div>
-      <a href="cv/cv.pdf" download class="btn-download-cv"> Télécharger CV </a>
-      <nav class="navbar justify-content-center pb-0">
-        <button class="nav-toggle" aria-label="open menu">☰</button>
-        <ul>
-          <li>
-            <a href="index.html">
-              <img src="img/exp-icon.webp" alt="" />
-              <span class="nav-no-wrap">ACCUEIL</span>
-            </a>
-          </li>
-          <li>
-            <a href="about.html">
-              <img src="img/about-icon.webp" alt="" />
-              <span class="nav-no-wrap">À PROPOS</span>
-            </a>
-          </li>
-          <li>
-            <a href="projects.html">
-              <img src="img/skills-icon.webp" alt="" />
-              <span>PROJETS</span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html">
-              <img src="img/contact-icon.webp" alt="" />
-              <span class="nav-no-wrap">CONTACT</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <!-- Article in Bootstrap -->
-      <article
-        class="section-wrapper container my-5 p-4 bg-white rounded shadow"
-      >
-        <div class="row">
-          <div class="col-12">
-            <h2 class="section-title text-center mb-4">
-              Mon futur site &amp; Twitch Bot (Deadlock API)
-            </h2>
-            <p class="mb-4">
-              Je suis en train de développer un site en
-              <strong>Angular</strong> et <strong>C#</strong> qui sert de hub à
-              mon Twitch Bot utilisant l’API Deadlock (jeu Valve). Le bot
-              collecte et affiche en temps réel des statistiques de jeu (rangs,
-              nombre de parties, performances) via des commandes dans le chat
-              Twitch.
-            </p>
-            <p class="mb-4">
-              Sur ce site, vous trouverez l’installation pas-à-pas ainsi que des
-              exemples de commandes pour utiliser le bot.
-            </p>
-            <div class="text-center">
-              <a
-                href="https://statlock.azurewebsites.net/welcome"
-                class="btn btn-light"
-                target="_blank"
-                rel="noopener"
-              >
-                Accéder au site du projet →
-              </a>
+        <header>
+            <div class="header-titles">
+                <h1>SEMENOV Aleksandr</h1>
+                <h2>DÉVELOPPEUR WEB</h2>
             </div>
-          </div>
-        </div>
-      </article>
-    </main>
+            <a href="cv/cv.pdf" download class="btn-download-cv" aria-label="Télécharger CV en PDF">
+                Télécharger CV
+            </a>
+            <nav class="navbar justify-content-center pb-0">
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu">☰</button>
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <img src="img/exp-icon.webp" alt="Accueil">
+                            <span class="nav-no-wrap">ACCUEIL</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html">
+                            <img src="img/about-icon.webp" alt="À propos">
+                            <span class="nav-no-wrap">À PROPOS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html">
+                            <img src="img/skills-icon.webp" alt="Projets">
+                            <span>PROJETS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            <img src="img/contact-icon.webp" alt="Contact">
+                            <span class="nav-no-wrap">CONTACT</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-    <footer>
-      <p>&copy; 2025. SEMENOV Aleksandr</p>
-    </footer>
+        <main>
+            <!-- Article in Bootstrap -->
+            <article class="section-wrapper container my-5 p-4 bg-white rounded shadow">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title text-center mb-4">
+                            Mon futur site &amp; Twitch Bot (Deadlock API)
+                        </h2>
+                        <p class="mb-4">
+                            Je suis en train de développer un site en
+                            <strong>Angular</strong> et <strong>C#</strong> qui sert de hub à
+                            mon Twitch Bot utilisant l’API Deadlock (jeu Valve). Le bot
+                            collecte et affiche en temps réel des statistiques de jeu (rangs,
+                            nombre de parties, performances) via des commandes dans le chat
+                            Twitch.
+                        </p>
+                        <p class="mb-4">
+                            Sur ce site, vous trouverez l’installation pas-à-pas ainsi que des
+                            exemples de commandes pour utiliser le bot.
+                        </p>
+                        <div class="text-center">
+                            <a
+                                href="https://statlock.azurewebsites.net/welcome"
+                                class="btn btn-light"
+                                target="_blank"
+                                rel="noopener">
+                                Accéder au site du projet →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
 
-    <script src="js/main.js"></script>
-    <!-- Bootstrap JS Bundle (опционально) -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+        <footer>
+            <p>&copy; 2025. SEMENOV Aleksandr</p>
+        </footer>
+
+        <script src="js/main.js"></script>
+        <!-- Bootstrap JS Bundle (optionnel) -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+            crossorigin="anonymous"></script>
+    </body>
 </html>

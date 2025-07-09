@@ -1,133 +1,114 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Projets de SEMENOV Aleksandr" />
-    <meta name="robots" content="index, follow" />
-    <title>Projets | SEMENOV Aleksandr</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <canvas id="bg-canvas"></canvas>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Projets de SEMENOV Aleksandr">
+        <meta name="robots" content="index, follow">
+        <title>Projets | SEMENOV Aleksandr</title>
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <canvas id="bg-canvas"></canvas>
 
-    <header>
-      <div class="header-titles">
-        <h1>SEMENOV Aleksandr</h1>
-        <h2>DÉVELOPPEUR WEB</h2>
-      </div>
-      <a
-        href="cv/cv.pdf"
-        download
-        class="btn-download-cv"
-        aria-label="Télécharger CV en PDF"
-      >
-        Télécharger CV
-      </a>
-
-      <nav class="navbar">
-        <button class="nav-toggle" aria-label="open menu">☰</button>
-        <ul>
-          <li>
-            <a href="index.html">
-              <img src="img/exp-icon.webp" alt="" />
-              <span class="nav-no-wrap">ACCUEIL</span>
-            </a>
-          </li>
-          <li>
-            <a href="about.html">
-              <img src="img/about-icon.webp" alt="" />
-              <span class="nav-no-wrap">À PROPOS</span>
-            </a>
-          </li>
-          <li>
-            <a href="projects.html" class="active">
-              <img src="img/skills-icon.webp" alt="" />
-              <span>PROJETS</span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html">
-              <img src="img/contact-icon.webp" alt="" />
-              <span class="nav-no-wrap">CONTACT</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <div class="section-wrapper projects">
-        <section>
-          <h2 class="section-title">Mes projets</h2>
-          <div class="projects-grid">
-            <!-- 1. Bot modérateur (Java) -->
-            <div class="project-card">
-              <h3>Bot modérateur (Java)</h3>
-              <p>
-                Bot Desktop développé en Java pour la modération d’un serveur
-                Minecraft : il analyse le chat et applique automatiquement les
-                sanctions.
-              </p>
-              <a
-                href="https://github.com/quazheat/bhscore"
-                class="btn-link"
-                target="_blank"
-                rel="noopener"
-              >
-                Voir sur GitHub
-              </a>
+        <header>
+            <div class="header-titles">
+                <h1>SEMENOV Aleksandr</h1>
+                <h2>DÉVELOPPEUR WEB</h2>
             </div>
+            <a href="cv/cv.pdf" download class="btn-download-cv" aria-label="Télécharger CV en PDF">
+                Télécharger CV
+            </a>
 
-            <!-- 2. Artiste Spotify (musique IA) -->
-            <div class="project-card">
-              <h3>Artiste Spotify</h3>
-              <p>
-                Catalogue musical entièrement généré par une IA : expérience de
-                prompt engineering pour comprendre et améliorer mes compétences
-                en création de contenus audio.
-              </p>
-              <a
-                href="https://open.spotify.com/artist/3cvfSQl8giPVntaNFrdufU"
-                class="btn-link"
-                target="_blank"
-                rel="noopener"
-              >
-                Écouter sur Spotify
-              </a>
+            <nav class="navbar">
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu">☰</button>
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <img src="img/exp-icon.webp" alt="Accueil">
+                            <span class="nav-no-wrap">ACCUEIL</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html">
+                            <img src="img/about-icon.webp" alt="À propos">
+                            <span class="nav-no-wrap">À PROPOS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="active">
+                            <img src="img/skills-icon.webp" alt="Projets">
+                            <span>PROJETS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            <img src="img/contact-icon.webp" alt="Contact">
+                            <span class="nav-no-wrap">CONTACT</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="section-wrapper projects">
+                <section>
+                    <h2 class="section-title">Mes projets</h2>
+                    <div class="projects-grid">
+                        <!-- 1. Bot modérateur (Java) -->
+                        <div class="project-card">
+                            <h3>Bot modérateur (Java)</h3>
+                            <p>
+                                Bot Desktop développé en Java pour la modération d’un serveur
+                                Minecraft : il analyse le chat et applique automatiquement les
+                                sanctions.
+                            </p>
+                            <a href="https://github.com/quazheat/bhscore" class="btn-link" target="_blank" rel="noopener">
+                                Voir sur GitHub
+                            </a>
+                        </div>
+
+                        <!-- 2. Artiste Spotify (musique IA) -->
+                        <div class="project-card">
+                            <h3>Artiste Spotify</h3>
+                            <p>
+                                Catalogue musical entièrement généré par une IA : expérience de
+                                prompt engineering pour comprendre et améliorer mes compétences
+                                en création de contenus audio.
+                            </p>
+                            <a href="https://open.spotify.com/artist/3cvfSQl8giPVntaNFrdufU" class="btn-link" target="_blank" rel="noopener">
+                                Écouter sur Spotify
+                            </a>
+                        </div>
+
+                        <!-- 3. Extension Chrome (Avatar Steam) -->
+                        <div class="project-card">
+                            <h3>Extension Chrome</h3>
+                            <p>
+                                Extension pour Chrome qui change automatiquement votre avatar
+                                Steam pendant vos sessions de jeu, fonctionnant en continu en
+                                arrière-plan.
+                            </p>
+                            <a href="https://chromewebstore.google.com/detail/steam-avatar-changer/odipoghlpfhoiinjokjicdlkodnbkgke" class="btn-link" target="_blank" rel="noopener">
+                                Voir sur le Chrome Web Store
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bouton vers les futurs projets -->
+                    <div class="projects-future">
+                        <a href="future.html" class="btn-link">Mes projets à venir →</a>
+                    </div>
+                </section>
             </div>
+        </main>
 
-            <!-- 3. Extension Chrome (Avatar Steam) -->
-            <div class="project-card">
-              <h3>Extension Chrome</h3>
-              <p>
-                Extension pour Chrome qui change automatiquement votre avatar
-                Steam pendant vos sessions de jeu, fonctionnant en continu en
-                arrière-plan.
-              </p>
-              <a
-                href="https://chromewebstore.google.com/detail/steam-avatar-changer/odipoghlpfhoiinjokjicdlkodnbkgke"
-                class="btn-link"
-                target="_blank"
-                rel="noopener"
-              >
-                Voir sur le Chrome Web Store
-              </a>
-            </div>
-          </div>
-          <!-- Bouton vers les futurs projets -->
-          <div style="text-align: center; margin-top: 2rem">
-            <a href="future.html" class="btn-link"> Mes projets à venir → </a>
-          </div>
-        </section>
-      </div>
-    </main>
+        <footer>
+            <p>&copy; 2025. SEMENOV Aleksandr</p>
+        </footer>
 
-    <footer>
-      <p>&copy; 2025. SEMENOV Aleksandr</p>
-    </footer>
-
-    <script src="js/main.js"></script>
-  </body>
+        <script src="js/main.js"></script>
+    </body>
 </html>

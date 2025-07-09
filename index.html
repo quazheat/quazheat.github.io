@@ -1,243 +1,234 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="CV d'SEMENOV Aleksandr" />
-    <meta name="robots" content="index, follow" />
-    <title>CV SEMENOV</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <canvas id="bg-canvas"></canvas>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="CV D&#39;SEMENOV Aleksandr">
+        <meta name="robots" content="index, follow">
+        <title>CV SEMENOV</title>
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <canvas id="bg-canvas"></canvas>
 
-    <!-- ============================= -->
-    <!-- Header -->
-    <!-- ============================= -->
-
-    <header>
-      <div class="header-titles">
-        <h1>SEMENOV Aleksandr</h1>
-        <h2>DÉVELOPPEUR WEB</h2>
-      </div>
-      <a
-        href="cv/cv.pdf"
-        download
-        class="btn-download-cv"
-        aria-label="Télécharger CV en PDF"
-      >
-        Télécharger CV
-      </a>
-
-      <!-- ============================= -->
-      <!-- Navigation -->
-      <!-- ============================= -->
-      <nav class="navbar">
-        <button class="nav-toggle" aria-label="open menu">☰</button>
-        <ul>
-          <li>
-            <a href="about.html">
-              <img src="img/about-icon.webp" alt="" />
-              <span class="nav-no-wrap">À PROPOS</span>
+        <!-- ============================= -->
+        <!-- Header -->
+        <!-- ============================= -->
+        <header>
+            <div class="header-titles">
+                <h1>SEMENOV Aleksandr</h1>
+                <h2>DÉVELOPPEUR WEB</h2>
+            </div>
+            <a
+                href="cv/cv.pdf"
+                download
+                class="btn-download-cv"
+                aria-label="Télécharger CV en PDF"
+            >
+                Télécharger CV
             </a>
-          </li>
-          <li>
-            <a href="projects.html">
-              <img src="img/skills-icon.webp" alt="" />
-              <span>PROJETS</span>
-            </a>
-          </li>
-          <li>
-            <a href="#formation">
-              <img src="img/edu-icon.webp" alt="" />
-              <span>FORMATIONS</span>
-            </a>
-          </li>
-          <li>
-            <a href="#experience">
-              <img src="img/exp-icon.webp" alt="" />
-              <span>EXPÉRIENCES</span>
-            </a>
-          </li>
-          <li>
-            <a href="#interests">
-              <img src="img/interests-icon.webp" alt="" />
-              <span>HOBBIES</span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html">
-              <img src="img/contact-icon.webp" alt="" />
-              <span>CONTACT</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
 
-    <main>
-      <!-- ============================= -->
-      <!-- Home Section -->
+            <!-- ============================= -->
+            <!-- Navigation -->
+            <!-- ============================= -->
+            <nav class="navbar">
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu">☰</button>
+                <ul>
+                    <li>
+                        <a href="about.html">
+                            <img src="img/about-icon.webp" alt="À propos">
+                            <span class="nav-no-wrap">À PROPOS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html">
+                            <img src="img/skills-icon.webp" alt="Projets">
+                            <span>PROJETS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#formation">
+                            <img src="img/edu-icon.webp" alt="Formations">
+                            <span>FORMATIONS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#experience">
+                            <img src="img/exp-icon.webp" alt="Expériences">
+                            <span>EXPÉRIENCES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#interests">
+                            <img src="img/interests-icon.webp" alt="Hobbies">
+                            <span>HOBBIES</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            <img src="img/contact-icon.webp" alt="Contact">
+                            <span>CONTACT</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-      <!-- ============================= -->
-      <div class="section-wrapper" id="home">
-        <section>
-          <h2 class="section-title">Bienvenue sur mon CV</h2>
-          <p class="section-text">
-            Actuellement en formation Web & Web Mobile pour l’obtention de mon
-            titre professionnel, je recherche un stage du 27 octobre au 5
-            décembre 2025
-          </p>
-        </section>
-      </div>
+        <main>
+            <!-- ============================= -->
+            <!-- Home Section -->
+            <!-- ============================= -->
+            <div class="section-wrapper" id="home">
+                <section>
+                    <h2 class="section-title">Bienvenue sur mon CV</h2>
+                    <p class="section-text">
+                        Actuellement en formation Web &amp; Web Mobile pour l’obtention de mon
+                        titre professionnel, je recherche un stage du 27 octobre au 5
+                        décembre 2025
+                    </p>
+                </section>
+            </div>
 
-      <!-- ============================= -->
-      <!-- Skills Section -->
-      <!-- ============================= -->
-      <div class="section-wrapper" id="competences">
-        <section>
-          <h2 class="section-title">Compétences</h2>
-          <ul class="skills-list">
-            <li>JavaScript</li>
-            <li>Angular (Flexbox)</li>
-            <li>Node.js</li>
-            <li>REST API</li>
-            <li>HTML / CSS</li>
-            <li>PHP</li>
-            <li>C#</li>
-            <li>MySQL</li>
-            <li>MongoDB</li>
-            <li>Git</li>
-            <li>GitHub</li>
-          </ul>
-        </section>
-      </div>
+            <!-- ============================= -->
+            <!-- Skills Section -->
+            <!-- ============================= -->
+            <div class="section-wrapper" id="competences">
+                <section>
+                    <h2 class="section-title">Compétences</h2>
+                    <ul class="skills-list">
+                        <li>JavaScript</li>
+                        <li>Angular (Flexbox)</li>
+                        <li>Node.js</li>
+                        <li>REST API</li>
+                        <li>HTML / CSS</li>
+                        <li>PHP</li>
+                        <li>C#</li>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>Git</li>
+                        <li>GitHub</li>
+                    </ul>
+                </section>
+            </div>
 
-      <!-- ============================= -->
-      <!-- Experience Section -->
-      <!-- ============================= -->
-      <div class="section-wrapper" id="experience">
-        <section>
-          <h2 class="section-title">Expériences</h2>
+            <!-- ============================= -->
+            <!-- Experience Section -->
+            <!-- ============================= -->
+            <div class="section-wrapper" id="experience">
+                <section>
+                    <h2 class="section-title">Expériences</h2>
 
-          <div class="exp-item">
-            <p>
-              <span class="exp-period"
-                ><strong>Avril 2020 – Octobre 2021</strong></span
-              ><br />
-              <span class="exp-role">Assistant informatique</span><br />
-              <span class="exp-company">YANDEX LLC, St. Pétersbourg</span>
-            </p>
-            <ul>
-              <li>
-                Support et maintenance de plus de 2 000 postes et applications
-                internes, dont plusieurs portails intranet basés sur
-                PHP/JavaScript.
-              </li>
-              <li>
-                Déploiement automatisé de services web (Docker & CI/CD),
-                rédaction de scripts Bash et Python pour optimiser les mises à
-                jour.
-              </li>
-              <li>
-                Participation à l’administration des serveurs Linux,
-                configuration Nginx/Apache et gestion des certificats SSL/TLS.
-              </li>
-            </ul>
-          </div>
+                    <div class="exp-item">
+                        <p>
+                            <span class="exp-period"><strong>Avril 2020 – Octobre 2021</strong></span><br>
+                            <span class="exp-role">Assistant informatique</span><br>
+                            <span class="exp-company">YANDEX LLC, St. Pétersbourg</span>
+                        </p>
+                        <ul>
+                            <li>
+                                Support et maintenance de plus de 2 000 postes et applications
+                                internes, dont plusieurs portails intranet basés sur
+                                PHP/JavaScript.
+                            </li>
+                            <li>
+                                Déploiement automatisé de services web (Docker &amp; CI/CD),
+                                rédaction de scripts Bash et Python pour optimiser les mises à
+                                jour.
+                            </li>
+                            <li>
+                                Participation à l’administration des serveurs Linux,
+                                configuration Nginx/Apache et gestion des certificats SSL/TLS.
+                            </li>
+                        </ul>
+                    </div>
 
-          <div class="exp-item">
-            <p>
-              <span class="exp-period"
-                ><strong>Janvier 2019 – Mars 2020</strong></span
-              ><br />
-              <span class="exp-role">Alternance – Cuisinier</span><br />
-              <span class="exp-company"
-                >Restaurants divers, St. Pétersbourg</span
-              >
-            </p>
-            <ul>
-              <li>
-                Travail en équipe, gestion rigoureuse des priorités et du temps
-                en contexte de forte affluence.
-              </li>
-              <li>
-                Maîtrise des normes d’hygiène et de sécurité, adaptation rapide
-                aux process et procédures.
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
-      <!-- ============================= -->
-      <!-- Education Section -->
+                    <div class="exp-item">
+                        <p>
+                            <span class="exp-period"><strong>Janvier 2019 – Mars 2020</strong></span><br>
+                            <span class="exp-role">Alternance – Cuisinier</span><br>
+                            <span class="exp-company">Restaurants divers, St. Pétersbourg</span>
+                        </p>
+                        <ul>
+                            <li>
+                                Travail en équipe, gestion rigoureuse des priorités et du temps
+                                en contexte de forte affluence.
+                            </li>
+                            <li>
+                                Maîtrise des normes d’hygiène et de sécurité, adaptation rapide
+                                aux process et procédures.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
 
-      <!-- ============================= -->
-      <div class="section-wrapper" id="formation">
-        <section>
-          <h2 class="section-title">Formations</h2>
-          <div class="edu-item">
-            <p class="edu-year"><strong>2025 – 2026</strong></p>
-            <p class="edu-title">Développeur Web</p>
-            <p class="edu-subtitle">
-              Formation développeur web et web mobile - Fréjus
-            </p>
-          </div>
-          <div class="edu-item">
-            <p class="edu-year"><strong>2017 – 2021</strong></p>
-            <p class="edu-title">GéoMaître</p>
-            <p class="edu-subtitle">
-              Collège de Tourisme et Services Hôteliers - St. Pétersbourg<br />
-              Diplôme obtenu BAC+4
-            </p>
-          </div>
-        </section>
-      </div>
+            <!-- ============================= -->
+            <!-- Education Section -->
+            <!-- ============================= -->
+            <div class="section-wrapper" id="formation">
+                <section>
+                    <h2 class="section-title">Formations</h2>
+                    <div class="edu-item">
+                        <p class="edu-year"><strong>2025 – 2026</strong></p>
+                        <p class="edu-title">Développeur Web</p>
+                        <p class="edu-subtitle">
+                            Formation développeur web et web mobile – Fréjus
+                        </p>
+                    </div>
+                    <div class="edu-item">
+                        <p class="edu-year"><strong>2017 – 2021</strong></p>
+                        <p class="edu-title">GéoMaître</p>
+                        <p class="edu-subtitle">
+                            Collège de Tourisme et Services Hôteliers – St. Pétersbourg<br>
+                            Diplôme obtenu BAC+4
+                        </p>
+                    </div>
+                </section>
+            </div>
 
-      <!-- ============================= -->
-      <!-- Interests Section -->
+            <!-- ============================= -->
+            <!-- Interests Section -->
+            <!-- ============================= -->
+            <div class="section-wrapper" id="interests">
+                <section>
+                    <h2 class="section-title highlight-bg">Centres d’intérêt</h2>
+                    <ul class="interests-list">
+                        <li>Projets open-source et hackathons</li>
+                        <li>Veille technologique (JS, Node.js, DevOps)</li>
+                        <li>Jeux vidéo &amp; game design</li>
+                        <li>Automatisation et IoT</li>
+                    </ul>
+                </section>
+            </div>
 
-      <!-- ============================= -->
-      <div class="section-wrapper" id="interests">
-        <section>
-          <h2 class="section-title highlight-bg">Centres d’intérêt</h2>
-          <ul class="interests-list">
-            <li>Projets open-source et hackathons</li>
-            <li>Veille technologique (JS, Node.js, DevOps)</li>
-            <li>Jeux vidéo & game design</li>
-            <li>Automatisation et IoT</li>
-          </ul>
-        </section>
-      </div>
+            <!-- ============================= -->
+            <!-- Contact Section -->
+            <!-- ============================= -->
+            <div class="section-wrapper" id="contact">
+                <section>
+                    <h2 class="section-title">Contact</h2>
+                    <p class="section-text">
+                        📧 : <a href="mailto:zxcalk@gmail.com">zxcalk@gmail.com</a>
+                    </p>
+                    <p class="section-text">📞 : 07 45 44 93 90</p>
+                    <p class="section-text">📍 : Fréjus</p>
+                </section>
+            </div>
+        </main>
 
-      <!-- ============================= -->
-      <!-- Contact Section -->
-      <!-- ============================= -->
-      <div class="section-wrapper" id="contact">
-        <section>
-          <h2 class="section-title">Contact</h2>
-          <p class="section-text">
-            📧 : <a href="mailto:zxcalk@gmail.com">zxcalk@gmail.com</a>
-          </p>
-          <p class="section-text">📞 : 07 45 44 93 90</p>
-          <p class="section-text">📍 : Fréjus</p>
-        </section>
-      </div>
-    </main>
+        <!-- ============================= -->
+        <!-- Footer -->
+        <!-- ============================= -->
+        <footer>
+            <p>&copy; 2025. SEMENOV Aleksandr</p>
+        </footer>
 
-    <!-- ============================= -->
-    <!-- Footer -->
-    <!-- ============================= -->
-    <footer>
-      <p>&copy; 2025. SEMENOV Aleksandr</p>
-    </footer>
+        <!-- ============================= -->
+        <!-- Back to Top Button -->
+        <!-- ============================= -->
+        <button id="toTopBtn" type="button" title="Vers le haut">↑</button>
 
-    <!-- ============================= -->
-    <!-- Back to Top Button -->
-    <!-- ============================= -->
-    <button id="toTopBtn" title="Vers le haut">↑</button>
-
-    <script src="js/main.js"></script>
-  </body>
+        <script src="js/main.js"></script>
+    </body>
 </html>
