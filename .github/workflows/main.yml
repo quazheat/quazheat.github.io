@@ -1,77 +1,78 @@
 name: Build and deploy GitHub Pages
 
 on:
-push:
-branches:
-\- main
+  push:
+    branches:
+      - main
 
 jobs:
-build-and-deploy:
-runs-on: ubuntu-latest
-permissions:
-contents: read    # чтение кода
-pages: write      # запись в Pages
-id-token: write   # для authenticate via OIDC
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read    # чтение кода
+      pages: write      # запись в Pages
+      id-token: write   # для authenticate via OIDC
 
-```
-steps:
-  # 1. Клонируем репозиторий
-  - name: Checkout repository
-    uses: actions/checkout@v4
+    steps:
+      # 1. Клонируем репозиторий
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  # 2. Устанавливаем Ruby
-  - name: Setup Ruby
-    uses: ruby/setup-ruby@v1
-    with:
-      ruby-version: '3.2.8'
+      # 2. Устанавливаем Ruby
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.8'
 
-  # 3. Устанавливаем Jekyll и HTMLProofer (опционально)
-  - name: Install Jekyll & HTMLProofer
-    run: |
-      gem install jekyll html-proofer
+      # 3. Устанавливаем Jekyll & HTMLProofer
+      - name: Install Jekyll & HTMLProofer
+        run: |
+          gem install jekyll html-proofer
 
-  # 4. (Опционально) Линтим Markdown
-  - name: Run Markdown lint
-    run: |
-      gem install mdl
-      mdl .
+      # 4. Линтим Markdown (опционально)
+      - name: Run Markdown lint
+        run: |
+          gem install mdl
+          mdl .
 
-  # 5. (Опционально) Проверяем готовый сайт ссылками и картинками
-  - name: Run HTMLProofer
-    run: |
-      jekyll build --destination ./_site
-      htmlproofer ./_site --disable-external
+      # 5. Сборка сайта
+      - name: Build site with Jekyll
+        run: |
+          jekyll build --destination ./_site
 
-  # 6. Собираем сайт
-  - name: Build site with Jekyll
-    run: |
-      jekyll build --destination ./_site
+      # 6. Проверка версии Bootstrap в сгенерированных HTML
+      - name: Verify Bootstrap version is 5.3.7
+        run: |
+          # Ищем упоминание пути с /bootstrap/5.3.7/ или ссылку на bootstrap@5.3.7
+          if grep -R -E '/bootstrap/5\.3\.7/' ./_site \
+             || grep -R -E 'bootstrap@5\.3\.7' ./_site; then
+            echo "✅ Found Bootstrap 5.3.7"
+          else
+            echo "::error::Bootstrap version is not 5.3.7 in compiled HTML"  
+            exit 1
+          fi
 
-  # 7. Проверка версии Bootstrap в собранном HTML
-  - name: Verify Bootstrap version is 5.3.7
-    run: |
-      if ! grep -R "<link[^>]*bootstrap[^>]*5\\.3\\.7" _site; then
-        echo "❌ Bootstrap version 5.3.7 not found in built site files"
-        exit 1
-      fi
+      # 7. (Опционально) Проверка ссылок и картинок
+      - name: Run HTMLProofer
+        run: |
+          htmlproofer ./_site --disable-external
 
-  # 8. Настраиваем Pages
-  - name: Configure Pages
-    uses: actions/configure-pages@v3
+      # 8. Настраиваем Pages
+      - name: Configure Pages
+        uses: actions/configure-pages@v3
 
-  # 9. Загружаем артефакты для деплоя
-  - name: Upload artifact for Pages
-    uses: actions/upload-pages-artifact@v3
-    with:
-      path: ./_site
+      # 9. Загружаем артефакты для деплоя
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
 
-  # 10. Деплоим на Pages
-  - name: Deploy to Pages
-    uses: actions/deploy-pages@v4
+      # 10. Деплой на Pages
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4
 
-  # 11. Выводим URL сайта
-  - name: Print site URL
-    run: |
-      echo "✅ Site successfully deployed!"
-      echo "🌐 URL: https://${{ github.repository_owner }}.github.io"
-```
+      # 11. Выводим URL сайта
+      - name: Print site URL
+        run: |
+          echo "✅ Site successfully deployed!"
+          echo "🌐 URL: https://${{ github.repository_owner }}.github.io"
