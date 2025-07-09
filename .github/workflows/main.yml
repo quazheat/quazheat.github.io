@@ -57,15 +57,16 @@ jobs:
         with:
           node-version: '16'
 
-      # 8. Install htmllint
-      - name: Install htmllint
-        run: npm install -g htmllint
+            # 8. Install htmllint CLI
+      - name: Install htmllint-cli
+        run: npm install -g htmllint-cli
 
       # 9. Run htmllint against generated HTML
       - name: Run htmllint
         run: |
           # Lint all HTML files under _site directory
           htmllint "./_site/**/*.html" --config .htmllintrc
+
 
       # 10. Configure GitHub Pages
       - name: Configure Pages
