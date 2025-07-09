@@ -22,10 +22,10 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.x'      # при необходимости поменяйте версию
+          ruby-version: '3.2.8'    # конкретная версия, поддерживаемая на ubuntu-24.04
           bundler-cache: true      # кешируем gems
 
-      # 3. (Опционально) Линтер для Markdown/Jekyll
+      # 3. (Опционально) Линтер для Markdown
       - name: Run Markdown lint
         run: |
           gem install mdl
