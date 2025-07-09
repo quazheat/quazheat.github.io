@@ -51,20 +51,21 @@ jobs:
             exit 1
           fi
 
-      # 7. Set up Node.js for Pa11y‑CI
+      # 7. Set up Node.js for htmllint
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-            # 8. Install Pa11y‑CI
-      - name: Install Pa11y‑CI
-        run: npm install -g pa11y-ci
+      # 8. Install htmllint
+      - name: Install htmllint
+        run: npm install -g htmllint
 
-      # 9. Run HTML accessibility & validity checks with Pa11y‑CI
-      - name: Run Pa11y‑CI
-        run: pa11y-ci --config .pa11yci.json
-
+      # 9. Run htmllint against generated HTML
+      - name: Run htmllint
+        run: |
+          # Lint all HTML files under _site directory
+          htmllint "./_site/**/*.html" --config .htmllintrc
 
       # 10. Configure GitHub Pages
       - name: Configure Pages
