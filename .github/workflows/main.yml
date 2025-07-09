@@ -9,40 +9,54 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read    
-      pages: write      
-      id-token: write   
+      contents: read    # чтение кода
+      pages: write      # запись в Pages
+      id-token: write   # для authenticate via OIDC
 
     steps:
+      # 1. Клонируем репозиторий
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Устанавливаем Ruby
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2.8'   
-          bundler-cache: true      
+          ruby-version: '3.2.8'
 
+      # 3. Устанавливаем Jekyll и HTMLProofer (опционально)
+      - name: Install Jekyll & HTMLProofer
+        run: |
+          gem install jekyll html-proofer
+
+      # 4. (Опционально) Линтим Markdown
       - name: Run Markdown lint
         run: |
           gem install mdl
           mdl .
 
-     
-      - name: Build site with Jekyll
-        run: bundle exec jekyll build --destination ./_site
 
+
+      # 6. Собираем сайт
+      - name: Build site with Jekyll
+        run: |
+          jekyll build --destination ./_site
+
+      # 7. Настраиваем Pages
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
+      # 8. Загружаем артефакты для деплоя
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
+      # 9. Деплоим на Pages
       - name: Deploy to Pages
         uses: actions/deploy-pages@v4
 
+      # 10. Выводим URL сайта
       - name: Print site URL
         run: |
           echo "✅ Site successfully deployed!"
