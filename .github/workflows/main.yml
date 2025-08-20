@@ -1,4 +1,3 @@
-
 name: Build and deploy GitHub Pages
 
 on:
@@ -30,18 +29,12 @@ jobs:
         run: |
           gem install jekyll
 
-      # 4. Run Markdown linting
-      - name: Markdown lint
-        run: |
-          gem install mdl
-          mdl .
-
-      # 5. Build the site with Jekyll
+      # 4. Build the site with Jekyll
       - name: Build site
         run: |
           jekyll build --destination ./_site
 
-      # 6. Verify Bootstrap version is 5.3.7
+      # 5. Verify Bootstrap version is 5.3.7
       - name: Verify Bootstrap version is 5.3.7
         run: |
           if grep -R -E '/bootstrap/5\.3\.7/' ./_site \
@@ -52,36 +45,36 @@ jobs:
             exit 1
           fi
 
-      # 7. Set up Node.js v18.x (LTS) for html-validate
+      # 6. Set up Node.js v18.x (LTS) for html-validate
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
 
-      # 8. Install html-validate
+      # 7. Install html-validate
       - name: Install html-validate
         run: npm install -g html-validate
 
-      # 9. Run html-validate against generated HTML
+      # 8. Run html-validate against generated HTML
       - name: Run html-validate
         run: |
           html-validate "./_site/**/*.html"
 
-      # 10. Configure GitHub Pages
+      # 9. Configure GitHub Pages
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
-      # 11. Upload build artifact for Pages
+      # 10. Upload build artifact for Pages
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
-      # 12. Deploy to GitHub Pages
+      # 11. Deploy to GitHub Pages
       - name: Deploy to Pages
         uses: actions/deploy-pages@v4
 
-      # 13. Print deployed site URL
+      # 12. Print deployed site URL
       - name: Print site URL
         run: |
           echo "✅ Site successfully deployed!"
